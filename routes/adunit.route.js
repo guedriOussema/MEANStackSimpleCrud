@@ -12,7 +12,7 @@ adUnitRoutes.route('/add').post(function (req, res) {
   let adUnit = new AdUnit(req.body);
   adUnit.save()
     .then(game => {
-    res.status(200).json({'adUnit': 'AdUnit in added successfully'});
+    res.status(200).json(game);
     })
     .catch(err => {
     res.status(400).send("unable to save to database");
@@ -49,7 +49,7 @@ adUnitRoutes.route('/update/:id').post(function (req, res) {
         adUnit.unit_price = req.body.unit_price;
 
         adUnit.save().then(adUnit => {
-          res.json('Update complete');
+          res.json(adUnit);
       })
       .catch(err => {
             res.status(400).send("unable to update the database");
@@ -62,7 +62,7 @@ adUnitRoutes.route('/update/:id').post(function (req, res) {
 adUnitRoutes.route('/delete/:id').get(function (req, res) {
     AdUnit.findByIdAndRemove({_id: req.params.id}, function(err, adUnit){
         if(err) res.json(err);
-        else res.json('Successfully removed');
+        else res.json(adUnit);
     });
 });
 

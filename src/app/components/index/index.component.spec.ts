@@ -3,6 +3,7 @@ import { IndexComponent } from './index.component';
 import { RouterTestingModule} from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
+import { from, empty, throwError, Observable } from 'rxjs';
 import { of } from 'rxjs';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/empty';
@@ -55,10 +56,17 @@ describe('IndexComponent', () => {
     expect(indexComponent.adunits).toEqual(response);
   }));
 
+  
+  it('should call the server to delete the adUnit', () => {
+    let spy = spyOn(indexComponent.adunitservice,'deleteAdUnit').and.callFake(t => {
+      return empty();
+    });
 
-  /**
-   * rest to do:
-   * testing delete
-   */
+    indexComponent.deleteAdUnit(undefined);
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  
  
 });

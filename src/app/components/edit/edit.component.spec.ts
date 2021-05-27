@@ -3,6 +3,7 @@ import { EditComponent } from './edit.component';
 import { RouterTestingModule} from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { from, empty, throwError, Observable } from 'rxjs';
 
 
 describe('EditComponent', () => {
@@ -51,9 +52,14 @@ describe('EditComponent', () => {
     expect(controlPrice.valid).toBeFalsy();
   });
 
-  /**
-   * rest to do:
-   * testing update
-   */
+  it('should call the server to update the adUnit', () => {
+    let spy = spyOn(edit.adunitservice,'updateAdUnit').and.callFake(t => {
+      return empty();
+    });
+
+    edit.updateAdUnit(undefined, undefined);
+
+    expect(spy).toHaveBeenCalled();
+  });
 
 });
