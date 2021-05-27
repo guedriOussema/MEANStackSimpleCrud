@@ -65,23 +65,5 @@ describe('CreateComponent', () => {
     expect(spy).toHaveBeenCalled();
   });
 
- 
-  it('should add the new adUnit returned from the server', async () => {
-
-    let adUnit = { unit_name: "unit name test", unit_price:251 };
-    let spy = spyOn(component.adunitservice,'addAdUnit').and.returnValue(from([ adUnit ]));
-
-    component.addAdUnit(adUnit.unit_name, adUnit.unit_price)
-
-    let adunit : AdUnit;
-
-    await component.adunitservice.getAdUnits().subscribe((data: any) => {
-      adunit = data;
-      expect(adunit).toBeTruthy();
-      expect(adunit.unit_name).toEqual('unit name test');
-      expect(adunit.unit_price).toEqual(251);
-  });
-  
-  });
 
 });
