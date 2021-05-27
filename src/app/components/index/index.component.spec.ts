@@ -54,5 +54,11 @@ describe('IndexComponent', () => {
     fixture.detectChanges();
     expect(indexComponent.adunits).toEqual(response);
   }));
+
+
+  /**
+   * rest to do:
+   * testing delete
+   */
  
 });

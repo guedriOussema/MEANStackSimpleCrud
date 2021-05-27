@@ -51,5 +51,9 @@ describe('EditComponent', () => {
     expect(controlPrice.valid).toBeFalsy();
   });
 
+  /**
+   * rest to do:
+   * testing update
+   */
 
 });

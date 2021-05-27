@@ -30,18 +30,6 @@ describe('CreateComponent', () => {
     }).compileComponents();
   }));
 
-  /**
-   * let component :CreateComponent;
-  let service: AdunitService;
-  let index: IndexComponent;
-
-
-  beforeEach(() => {
-    service = new AdunitService(null);
-    component = new CreateComponent(service,new FormBuilder);
-    index = new IndexComponent(service);
-  });
-   */
 
   beforeEach(() => {
     const fixture = TestBed.createComponent(CreateComponent);
