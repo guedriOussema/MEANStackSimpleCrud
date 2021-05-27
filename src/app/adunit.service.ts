@@ -16,8 +16,8 @@ export class AdunitService {
       unit_name: unit_name,
       unit_price: unit_price
     };
-    this.http.post(`${this.uri}/add`, obj)
-        .subscribe(res => console.log('Done'));
+
+    return this.http.post(`${this.uri}/add`, obj);
   }
 
   getAdUnits() {

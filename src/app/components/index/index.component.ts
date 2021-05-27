@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdUnit } from './AdUnit';
 import { AdunitService } from '../../adunit.service';
 
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -15,15 +16,20 @@ export class IndexComponent implements OnInit {
 
   deleteAdUnit(id) {
     this.adunitservice.deleteAdUnit(id).subscribe(res => {
+      console.log(typeof(res));
       console.log('Deleted');
     });
   }
 
-  ngOnInit() {
+  getAdUnits(){
     this.adunitservice
       .getAdUnits()
       .subscribe((data: AdUnit[]) => {
       this.adunits = data;
     });
+  }
+
+  ngOnInit() {
+    this.getAdUnits();
   }
 }

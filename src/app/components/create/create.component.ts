@@ -23,7 +23,10 @@ export class CreateComponent implements OnInit {
   }
 
   addAdUnit(unit_name, unit_price) {
-    this.adunitservice.addAdUnit(unit_name, unit_price);
+    this.adunitservice.addAdUnit(unit_name, unit_price)
+      .subscribe((res:any) => {
+        console.log(res);
+    });
 }
   ngOnInit() {
   }
